@@ -7,27 +7,23 @@
         <h3><a href="{% url 'blog:add_blog' %}"> Create New Blog Post</a></h3>
         {% if blogs %}
             <div class="ui three column padded relaxed grid">
-                    {% for blog in blogs %}
+                {% for blog in blogs %}
                 <div class="row">
-                   
-                    
-                        <div class="ui raised fluid card">
-                            <div class="content">
-                                <div class="header"><a href="{% url 'blog:blog_detail' id=blog.id %}">{{ blog.blog_title }}</a></div>
-                                <div class="meta"><span class="date">{{ blog.blog_post_date }}</span></div>
-                                <div class="description">
-                                    {{ blog.blog_content }}
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <a href="{% url 'blog:add_comment' id=blog.id %}">Comments: {{blog.comments.count}}</a>
-                                <div class="right floated author">
-                                    by: {{ blog.blog_author }}
-                                </div>
+                    <div class="ui raised fluid card">
+                        <div class="content">
+                            <div class="header"><a href="{% url 'blog:blog_detail' id=blog.id %}">{{ blog.blog_title }}</a></div>
+                            <div class="meta"><span class="date">{{ blog.blog_post_date }}</span></div>
+                            <div class="description">
+                                {{ blog.blog_content }}
                             </div>
                         </div>
-                    
-                   
+                        <div class="content">
+                            <a href="{% url 'blog:add_comment' id=blog.id %}">Comments: {{blog.comments.count}}</a>
+                            <div class="right floated author">
+                                by: {{ blog.blog_author }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>    
