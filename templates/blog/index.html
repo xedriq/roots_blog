@@ -1,44 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="ui center aligned  text container"><h1 class="ui header">Welcome to Roots Blog</h1></div>
+<div class="ui center aligned text container"><h1 class="ui huge header">Welcome to Roots Blog</h1></div><br>
 
-    <div class="ui text container">
-        
+    <div class="ui container">
         <h3><a href="{% url 'blog:add_blog' %}"> Create New Blog Post</a></h3>
         {% if blogs %}
-            {% for blog in blogs %}
-                <div class="ui celled list">
-                    <div class="item">
-                        <div class="content">
-                          
-                            <div class="ui large header"><a href="{% url 'blog:blog_detail' id=blog.id %}">{{ blog.blog_title }}</a></div>
-                            <div class="ui small header">by: {{ blog.blog_author }}</div>
-                            <span class="date">{{ blog.blog_post_date }}</span>
-                            <br><br>
-                            <div class="ui content">
-                                {{ blog.blog_content }}
-                            </div>
-                            <br>
-                            <div class="ui sub header">Comments: {{blog.comments.count}}</div>
-                            {% for comment in blog.comments.all %}
-                            <div class="ui center comments">
-                                <div class="comment">
-                                    <div class="content">
-                                        <div class="author">{{ comment.comment_author }} said:</div>
-                                        <div class="text">{{ comment.comment_content }}</div>
-                                    </div>
+            <div class="ui three column padded relaxed grid">
+                    {% for blog in blogs %}
+                <div class="row">
+                   
+                    
+                        <div class="ui raised fluid card">
+                            <div class="content">
+                                <div class="header"><a href="{% url 'blog:blog_detail' id=blog.id %}">{{ blog.blog_title }}</a></div>
+                                <div class="meta"><span class="date">{{ blog.blog_post_date }}</span></div>
+                                <div class="description">
+                                    {{ blog.blog_content }}
                                 </div>
                             </div>
-                            {% empty %}
-                                <p>No comments yet</p>
-                            {% endfor %}
-                            <a href="{% url 'blog:add_comment' id=blog.id %}"><button class="ui green icon button"><i class="edit icon"></i>Add Comment</button> </a>
-                            
+                            <div class="extra content">
+                                <a href="{% url 'blog:add_comment' id=blog.id %}">Comments: {{blog.comments.count}}</a>
+                                <div class="right floated author">
+                                    by: {{ blog.blog_author }}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    
+                   
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>    
         {% else %}
             <h3>No blog Yet</h3>
         {% endif %}
