@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<div class="ui center aligned  text container"><h1 class="ui header">Welcome to Roots Blog</h1></div>
+
     <div class="ui text container">
-        <h1 class="ui header">Welcome to Roots Blog</h1>
+        
         <h3><a href="{% url 'blog:add_blog' %}"> Create New Blog Post</a></h3>
         {% if blogs %}
             {% for blog in blogs %}
@@ -9,11 +12,10 @@
                     <div class="item">
                         <div class="content">
                           
-                            <div class="ui medium header"><a href="{% url 'blog:blog_detail' id=blog.id %}">{{ blog.blog_title }}</a></div>
-                            <div class="ui small hear">by: {{ blog.blog_author }}</div>
-                            
-                            <div class="ui sub header">{{ blog.blog_post_date }}</div>
-                            <br>
+                            <div class="ui large header"><a href="{% url 'blog:blog_detail' id=blog.id %}">{{ blog.blog_title }}</a></div>
+                            <div class="ui small header">by: {{ blog.blog_author }}</div>
+                            <span class="date">{{ blog.blog_post_date }}</span>
+                            <br><br>
                             <div class="ui content">
                                 {{ blog.blog_content }}
                             </div>

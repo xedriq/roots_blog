@@ -7,7 +7,13 @@
             
             {{ blog_form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Submit">
+            <!-- <input type="submit" value="Submit"> -->
+            <button class="ui primary button" type="submit">
+                Save
+            </button>
+            <a href="{% url 'index' %}"><button class="ui button" type="button">
+                Discard
+            </button></a> 
         </form>
     </div>
 {% endblock %}
