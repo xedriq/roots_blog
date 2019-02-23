@@ -16,8 +16,27 @@
     <title>Roots Blog</title>
 </head>
     <body>
+        <nav>
+            <div class="ui container">
+            <div class="ui large inverted menu">
+                <a class="item" href="{% url 'index' %}">Home</a> 
+                    <!-- <li>Create New Post</li> -->
+                <a class="item" href="{% url 'about' %}">About</a>
+            </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        
         {% block content %}
         {% endblock %}
+        <br>
+        <br>
+        <footer>
+            <div class="ui center aligned container">
+                <p>Copyright &copy; Roots 2019</p>
+            </div>
+        </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
         <!-- my js -->

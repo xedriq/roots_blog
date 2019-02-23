@@ -17,7 +17,7 @@ class BlogForm(forms.ModelForm):
     
 
 class CommentForm(forms.ModelForm):
-    comment_content = forms.CharField(label='Comment', widget=forms.Textarea(attrs={'rows':4,'placeholder': 'Write your comment here...'}))
+    comment_content = forms.CharField(label='', widget=forms.Textarea(attrs={'rows':4,'placeholder': 'Write your comment here...'}))
 
     class Meta:
         model = Comment

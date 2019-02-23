@@ -1,18 +1,12 @@
 body {
     font-family: Montserrat, sans-serif;
-    margin: 3em auto;
-    padding-bottom: 3em;
-}
-
-li {
     margin: 2em auto;
-    list-style: none;
-    padding: 0;
+    padding-bottom: 3em;
+    background-color: #eee;
 }
 
-#main-title {
-    /* text-align: center !important; */
-    margin: 0 auto;
-}
-
+.eq-card.ui.card {
+    flex: 3; /* Shrink and grow according to available height */
+    flex-basis: 1;
+  }
 
