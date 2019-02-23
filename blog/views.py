@@ -56,3 +56,8 @@ def add_comment(request, id):
             'blog': blog
             }
     return render(request, template, context)
+
+def about(request):
+    template = 'blog/about.html'
+
+    return render(request, template)

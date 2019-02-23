@@ -1,19 +1,8 @@
 body {
     font-family: Montserrat, sans-serif;
-    margin: 3em auto;
-    padding-bottom: 10%;
-    background-color: #eee;
-}
-
-li {
     margin: 2em auto;
-    list-style: none;
-    padding: 0;
-}
-
-#main-title {
-    /* text-align: center !important; */
-    margin: 0 auto;
+    padding-bottom: 3em;
+    background-color: #eee;
 }
 
 .eq-card.ui.card {
